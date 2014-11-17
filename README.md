@@ -3,6 +3,31 @@ This is munin plugin for count of Nginx access.log.
 
 # How to setup
 
+
+Change log file permission.
+```
+# chmod 644 /var/log/nginx/*.log
+```
+
+Add "create 644 nginx adm" to nginx logrotate.d file.
+```
+# cat /etc/logrotate.d/nginx 
+/var/log/nginx/*.log {
+        daily
+        missingok
+        rotate 52
+        compress
+        delaycompress
+        notifempty
+        create 644 nginx adm
+        sharedscripts
+        postrotate
+                [ -f /var/run/nginx.pid ] && kill -USR1 `cat /var/run/nginx.pid`
+        endscript
+}
+```
+
+Set plugin.
 ```
 # cd /usr/share/munin/plugins/
 # wget --no-check-certificate https://raw.githubusercontent.com/takeshiyako2/munin-nginx_access_log/master/nginx_access_log
