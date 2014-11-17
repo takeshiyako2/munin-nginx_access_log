@@ -9,7 +9,7 @@ This is munin plugin for count of Nginx access.log.
 # chmod +x nginx_access_log
 # ln -s /usr/share/munin/plugins/nginx_access_log /etc/munin/plugins/nginx_access_log
 # munin-run nginx_access_log
-nginx_access_log.value 12
+nginx_access_log.value 5413
 # service munin-node restart
 ```
 
