@@ -44,5 +44,5 @@ if [ "$1" = "config" ]; then
 fi
 
 LOG=${log:-/var/log/nginx/access.log}
-COUNT=`wc -l < $LOG`
+COUNT=`/usr/bin/ionice -c2 -n7 /bin/nice -n19 wc -l < $LOG`
 printf "nginx_access_log.value $COUNT\n"
