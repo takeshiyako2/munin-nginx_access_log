@@ -1,6 +1,8 @@
 This is munin plugin for count of Nginx access.log.
 
 
+![munin-nginx_access_log example](https://raw.githubusercontent.com/takeshiyako2/munin-nginx_access_log/master/images/example.png "munin-nginx_access_log example")
+
 # How to setup
 
 
